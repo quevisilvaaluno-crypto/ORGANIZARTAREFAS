@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Tarefas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="app">
+    <header class="app__header">
+      <h1 class="app__title">Minhas Tarefas</h1>
+      <p class="app__date" id="dataAtual"></p>
+    </header>
+
+    <form class="task-form" id="taskForm">
+      <input
+        type="text"
+        id="taskInput"
+        class="task-form__input"
+        placeholder="O que você precisa fazer?"
+        autocomplete="off"
+        maxlength="80"
+      >
+      <button type="submit" class="task-form__button">Adicionar</button>
+    </form>
+
+    <nav class="filters" id="filters">
+      <button class="filters__button is-active" data-filter="todas">Todas</button>
+      <button class="filters__button" data-filter="pendentes">Pendentes</button>
+      <button class="filters__button" data-filter="concluidas">Concluídas</button>
+    </nav>
+
+    <ul class="task-list" id="taskList"></ul>
+
+    <p class="empty-state" id="emptyState">Nenhuma tarefa por aqui. Adicione a primeira acima.</p>
+
+    <footer class="app__footer">
+      <span id="taskCounter">0 tarefas</span>
+      <button class="app__clear" id="clearCompleted">Limpar concluídas</button>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

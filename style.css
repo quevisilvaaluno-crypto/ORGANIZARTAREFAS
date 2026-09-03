@@ -1,0 +1,222 @@
+/* ===== Tokens ===== */
+:root {
+  --cor-fundo: #F6F4EF;
+  --cor-superficie: #FFFFFF;
+  --cor-texto: #24312B;
+  --cor-texto-suave: #6F7A72;
+  --cor-borda: #E1DDD2;
+  --cor-destaque: #3F6C51;
+  --cor-destaque-escuro: #2E5140;
+  --cor-perigo: #A6432E;
+  --cor-concluida: #A9B3A6;
+
+  --fonte-titulo: 'Lora', serif;
+  --fonte-corpo: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  display: flex;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+.app {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* ===== Cabeçalho ===== */
+.app__header {
+  margin-bottom: 28px;
+  border-bottom: 2px solid var(--cor-texto);
+  padding-bottom: 14px;
+}
+
+.app__title {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 0 0 4px 0;
+}
+
+.app__date {
+  margin: 0;
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+/* ===== Formulário ===== */
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-form__input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  background: var(--cor-superficie);
+  color: var(--cor-texto);
+}
+
+.task-form__input:focus {
+  outline: 2px solid var(--cor-destaque);
+  outline-offset: 1px;
+}
+
+.task-form__button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  background: var(--cor-destaque);
+  color: #fff;
+  font-family: var(--fonte-corpo);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.task-form__button:hover {
+  background: var(--cor-destaque-escuro);
+}
+
+/* ===== Filtros ===== */
+.filters {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+
+.filters__button {
+  border: none;
+  background: transparent;
+  color: var(--cor-texto-suave);
+  font-family: var(--fonte-corpo);
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.filters__button:hover {
+  color: var(--cor-texto);
+}
+
+.filters__button.is-active {
+  background: var(--cor-texto);
+  color: #fff;
+}
+
+/* ===== Lista de tarefas ===== */
+.task-list {
+  list-style: none;
+  margin: 0 0 8px 0;
+  padding: 0;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.task-item__checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--cor-destaque);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.task-item__text {
+  flex: 1;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+.task-item.is-done .task-item__text {
+  color: var(--cor-concluida);
+  text-decoration: line-through;
+}
+
+.task-item__delete {
+  border: none;
+  background: transparent;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.task-item__delete:hover {
+  color: var(--cor-perigo);
+}
+
+/* ===== Estado vazio ===== */
+.empty-state {
+  display: none;
+  text-align: center;
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  padding: 32px 0;
+}
+
+.empty-state.is-visible {
+  display: block;
+}
+
+/* ===== Rodapé ===== */
+.app__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+.app__clear {
+  border: none;
+  background: transparent;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.app__clear:hover {
+  color: var(--cor-perigo);
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 480px) {
+  .app__title {
+    font-size: 1.6rem;
+  }
+
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-form__button {
+    width: 100%;
+  }
+}
